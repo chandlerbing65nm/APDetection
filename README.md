@@ -1,8 +1,8 @@
 ## Installation
 
-Please refer to [install.md](docs/install.md) for installation and dataset preparation.
+Please refer to [install.md](docs/install.md) for installation.
 
 
-## Get Started: Oriented models training and testing
+## Get Started
 
-If you want to train or test a oriented model, please refer to [oriented_model_starting.md](docs/oriented_model_starting.md).
+For dataset preparation and if you want to train or test a our model, please refer to [get-started.md](docs/oriented_model_starting.md).
