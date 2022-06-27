@@ -57,7 +57,7 @@ pip install mmcv-full==1.3.9 -f https://download.openmmlab.com/mmcv/dist/cu111/t
 # Here, the version of cuda and torch should be the same with your environment.
 ```
 
-- install Attention-Points-Detection
+- install APDetection
 
 ```
 pip install -r requirements/build.txt
