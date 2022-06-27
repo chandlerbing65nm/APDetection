@@ -15,7 +15,7 @@ python demo/huge_image_demo.py ${IMAGE_FILE} ${CONFIG_FILE} ${CHECKPOINT_FILE} $
 
 All config files of oriented object datasets are put at `<APDetection>/configs/obb/_base_/dataset`. Before training and testing, you need to add the dataset path to config files.
 
-Especially, DOTA dataset need to be splitted and add the splitted dataset path to DOTA config files. We develop a script `img_split.py` at `<APDetection>/BboxToolkit/tools/` to split images and generate patch labels.
+Especially, DOTA dataset need to be splitted and add the splitted dataset path to DOTA config files. There is a script `img_split.py` at `<APDetection>/BboxToolkit/tools/` to split images and generate patch labels.
 The simplest way to use `img_split.py` is loading the json config in `BboxToolkit/tools/split_configs`. Please refer to [USAGE.md](https://github.com/jbwang1997/BboxToolkit/USAGE.md) for the details of `img_split.py`.
 
 **example**
