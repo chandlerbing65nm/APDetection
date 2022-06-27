@@ -1,4 +1,4 @@
-# Oriented Model Starting
+# Model Start
 
 This page provides the basic tutorials for training and testing oriented models.
 
@@ -27,10 +27,7 @@ python img_split.py --base_json split_configs/dota1_0/ss_dota_train.json
 
 **note**: the `ss` and `ms` mean `single scale splitting` and `multiple scales`.
 
-## training
-
-The training process is same as MMdetection training process.
-Please see [gettting_started.md](getting_started.md) for details.
+## Training
 
 ```shell
 # one GPU training
@@ -40,12 +37,9 @@ python tools/train.py ${CONFIG_FILE} [optional arguments]
 ./tools/dist_train.sh ${CONFIG_FILE} ${GPU_NUM} [optional arguments]
 ```
 
-**note**: We test all oriented models on 1 GPU and with batch size of 2. the basic learning rate is 0.005. if your training batch size is different from ours, please remember to change the learing rate based the [Linear Scaling Rule](https://arxiv.org/abs/1706.02677).
+**note**: We test our model on 1 GPU and with batch size of 2. the basic learning rate is 0.005 for SGD. if your training batch size is different from ours, please remember to change the learing rate based the [Linear Scaling Rule](https://arxiv.org/abs/1706.02677).
 
-## testing
-
-Most testing process is same as the MMdetection testing process.
-Please see [gettting_started.md](getting_started.md) for details.
+## Testing
 
 ```shell
 # single-gpu testing
