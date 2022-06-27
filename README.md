@@ -13,6 +13,14 @@ Please refer to [install.md](docs/install.md) for installation.
 
 For dataset preparation and training/testing of our model, please refer to [get-started.md](docs/get-started.md).
 
+## Citation
+```bibtex
+@article{Doloriel2022,
+	title="Improving Localization in Oriented Aerial Detection with Attention-Points Network",
+	author="Doloriel, C.T. and Cajote, R.D.",
+	year="2022"
+}
+```
 ## Acknowledgements
 
 Below are some great resources we used. We would like to thank the owners of:
