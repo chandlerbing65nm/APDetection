@@ -28,11 +28,11 @@ PyTorch 1.9.0., you need to install the prebuilt PyTorch with CUDA 11.1.
 pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
-c. Clone the Attention-Points-Detection repository.
+c. Clone the APDetection repository.
 
 ```shell
-git clone https://github.com/chandlerbing65nm/Attention-Points-Detection.git
-cd Attention-Points-Detection
+git clone https://github.com/chandlerbing65nm/APDetection.git
+cd APDetection
 ```
 
 d. Install build requirements and then install APDetection.
