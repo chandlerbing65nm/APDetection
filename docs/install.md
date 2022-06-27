@@ -11,8 +11,8 @@
 - [mmcv > 1.3](https://github.com/open-mmlab/mmcv)
 - [BboxToolkit 1.0](https://github.com/jbwang1997/BboxToolkit)
 
-Refer to instructions below to install above requirements.
-
+##### Refer to instructions below to install above requirements.
+---
 ### Install
 
 a. Create a conda virtual environment and activate it.
