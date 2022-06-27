@@ -1,14 +1,17 @@
 ## Installation
 
-### Requirements (Tested)
+### Requirements (tested)
 
 - Linux or macOS (Windows is not currently officially supported)
-- Python 3.6+
+- Python 3.7
 - PyTorch 1.9.0
 - CUDA 11.1
 - GCC 5+
+- GPU rtx 30-series, A5000/6000
 - [mmcv > 1.3](https://github.com/open-mmlab/mmcv)
 - [BboxToolkit 1.0](https://github.com/jbwang1997/BboxToolkit)
+
+Refer to instructions below to install above requirements.
 
 ### Install
 
