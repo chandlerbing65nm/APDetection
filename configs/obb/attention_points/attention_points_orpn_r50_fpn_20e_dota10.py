@@ -1,6 +1,6 @@
 _base_ = [
     '../_base_/datasets/isaid.py',
-    '../_base_/schedules/schedule_20e.py',
+    '../_base_/schedules/schedule_1x.py',
     '../../_base_/default_runtime.py'
 ]
 
@@ -192,4 +192,6 @@ data = dict(
 evaluation = None
 
 # optimizer
-optimizer = dict(type='SGD', lr=0.005, momentum=0.9, weight_decay=0.0001)
+optimizer = dict(type='Adam', lr=0.005/100, weight_decay=0.0001)
+optimizer_config = dict(grad_clip=None)
+# optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
