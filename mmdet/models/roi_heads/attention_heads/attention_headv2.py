@@ -20,7 +20,7 @@ GPU_MEM_LIMIT = 1024**3  # 1 GB memory limit
 
 
 @HEADS.register_module()
-class AttentionHead(nn.Module):
+class AttentionHeadv2(nn.Module):
 
     def __init__(self,
                  num_convs=2,
@@ -35,7 +35,7 @@ class AttentionHead(nn.Module):
                  act_cfg=None,
                  loss_attention=dict(
                      type='CrossEntropyLoss', use_mask=True, loss_weight=1.0)):
-        super(AttentionHead, self).__init__()
+        super(AttentionHeadv2, self).__init__()
         assert class_agnostic is True
         
         self.num_convs = num_convs
@@ -43,9 +43,9 @@ class AttentionHead(nn.Module):
 
         #################################################
         self.in_channels = in_channels
-        self.key_channels = self.in_channels // 2
+        self.key_channels = in_channels // 2
         self.head_count = 1
-        self.value_channels = self.in_channels
+        self.value_channels = in_channels
         #################################################
 
         self.conv_out_channels = conv_out_channels
