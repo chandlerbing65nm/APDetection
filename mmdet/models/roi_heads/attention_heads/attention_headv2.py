@@ -136,9 +136,7 @@ class AttentionHeadv2(nn.Module):
                 :
             ]
             context = key @ value.transpose(1, 2)
-            attended_value = (
-                context.transpose(1, 2) @ query
-            ).reshape(n, head_value_channels, h, w)
+            attended_value = (context.transpose(1, 2) @ query).reshape(n, head_value_channels, h, w)
             attended_values.append(attended_value)
 
         aggregated_values = torch.cat(attended_values, dim=1)
