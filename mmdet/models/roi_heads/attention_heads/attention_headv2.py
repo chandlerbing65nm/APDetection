@@ -45,7 +45,7 @@ class AttentionHead(nn.Module):
         self.in_channels = in_channels
         self.key_channels = self.in_channels // 2
         self.head_count = 1
-        self.value_channels = self.in_channels // 2
+        self.value_channels = self.in_channels
         #################################################
 
         self.conv_out_channels = conv_out_channels
