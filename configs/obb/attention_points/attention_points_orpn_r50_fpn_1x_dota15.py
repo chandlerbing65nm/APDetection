@@ -134,7 +134,7 @@ test_cfg = dict(
         score_thr=0.05, nms=dict(type='obb_nms', iou_thr=0.1), max_per_img=2000))
 
 dataset_type = 'DOTADataset'
-data_root = '../split_ss_dota1_0/'
+data_root = '../split_ss_dota1_5/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
