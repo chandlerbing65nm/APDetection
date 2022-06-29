@@ -28,6 +28,7 @@ class AttentionHeadv2(nn.Module):
                  in_channels=256,
                  conv_out_channels=256,
                  num_classes=80,
+                 head_count = 1,
                  bbox_type='obb',
                  class_agnostic=False,
                  conv_cfg=None,
@@ -44,7 +45,7 @@ class AttentionHeadv2(nn.Module):
         #################################################
         self.in_channels = in_channels
         self.key_channels = in_channels // 2
-        self.head_count = 1
+        self.head_count = head_count
         self.value_channels = in_channels
         #################################################
 
@@ -109,9 +110,11 @@ class AttentionHeadv2(nn.Module):
     def forward(self, x):
         feats = x
         n, _, h, w = x.size()
+
         keys = self.keys(x).reshape((n, self.key_channels, h * w))
         queries = self.queries(x).reshape(n, self.key_channels, h * w)
         values = self.values(x).reshape((n, self.value_channels, h * w))
+
         head_key_channels = self.key_channels // self.head_count
         head_value_channels = self.value_channels // self.head_count
         
