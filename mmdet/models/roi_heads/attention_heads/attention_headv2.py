@@ -38,6 +38,7 @@ class AttentionHeadv2(nn.Module):
                      type='CrossEntropyLoss', use_mask=True, loss_weight=1.0)):
         super(AttentionHeadv2, self).__init__()
         assert class_agnostic is True
+        assert head_count
         
         self.num_convs = num_convs
         self.roi_feat_size = roi_feat_size
