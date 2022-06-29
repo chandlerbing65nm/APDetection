@@ -54,7 +54,6 @@ class AttentionHead(nn.Module):
         self.bbox_type = bbox_type
 
         self.normalconvs = nn.ModuleList()
-        self.onebyoneconvs = nn.ModuleList()
         for i in range(self.num_convs):
             in_channels = (self.in_channels if i == 0 else self.conv_out_channels)
             self.normalconvs.append(
