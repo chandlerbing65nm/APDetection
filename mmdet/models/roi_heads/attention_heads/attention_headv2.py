@@ -82,7 +82,7 @@ class AttentionHeadv2(nn.Module):
                                 act_cfg = dict(type='ReLU'))
 
         self.reprojection = ConvModule(self.value_channels,
-                                self.conv_out_channels,
+                                self.in_channels,
                                 1,
                                 conv_cfg=conv_cfg,
                                 norm_cfg=norm_cfg,
@@ -140,8 +140,9 @@ class AttentionHeadv2(nn.Module):
 
         aggregated_values = torch.cat(attended_values, dim=1)
         reprojected_value = self.reprojection(aggregated_values)
-        
-        attention_pred = reprojected_value
+        attention = reprojected_value + x
+
+        attention_pred = self.conv_logits(attention)
         attention_feats = attention_pred * feats
 
         return attention_pred, attention_feats
