@@ -120,12 +120,12 @@ class AttentionHeadv2(nn.Module):
         
         attended_values = []
         for i in range(self.head_count):
-            key = f.softmax(keys[
+            key = F.softmax(keys[
                 :,
                 i * head_key_channels: (i + 1) * head_key_channels,
                 :
             ], dim=2)
-            query = f.softmax(queries[
+            query = F.softmax(queries[
                 :,
                 i * head_key_channels: (i + 1) * head_key_channels,
                 :
