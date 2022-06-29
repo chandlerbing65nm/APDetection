@@ -23,7 +23,7 @@ GPU_MEM_LIMIT = 1024**3  # 1 GB memory limit
 class AttentionHead(nn.Module):
 
     def __init__(self,
-                 num_convs=3,
+                 num_convs=2,
                  roi_feat_size=7,
                  in_channels=256,
                  conv_out_channels=256,
@@ -32,6 +32,7 @@ class AttentionHead(nn.Module):
                  class_agnostic=False,
                  conv_cfg=None,
                  norm_cfg=None,
+                 act_cfg=None,
                  loss_attention=dict(
                      type='CrossEntropyLoss', use_mask=True, loss_weight=1.0)):
         super(AttentionHead, self).__init__()
@@ -46,27 +47,41 @@ class AttentionHead(nn.Module):
 
         self.conv_cfg = conv_cfg
         self.norm_cfg = norm_cfg
+        self.act_cfg = act_cfg
         self.fp16_enabled = False
         self.loss_attention = build_loss(loss_attention)
         assert bbox_type in ['hbb', 'obb']
         self.bbox_type = bbox_type
 
-        self.convs = nn.ModuleList()
+        self.normalconvs = nn.ModuleList()
+        self.onebyoneconvs = nn.ModuleList()
         for i in range(self.num_convs):
-            in_channels = (
-                self.in_channels if i == 0 else self.conv_out_channels)
-            self.convs.append(
-                ConvModule(
-                    in_channels,
-                    self.conv_out_channels,
-                    3,
-                    padding=1,
-                    conv_cfg=conv_cfg,
-                    norm_cfg=norm_cfg))
+            in_channels = (self.in_channels if i == 0 else self.conv_out_channels)
+            self.normalconvs.append(
+                ConvModule(self.conv_out_channels,
+                            self.conv_out_channels,
+                            3,
+                            padding=1,
+                            conv_cfg=conv_cfg,
+                            norm_cfg=norm_cfg,
+                            act_cfg = dict(type='ReLU')))
+            self.onebyoneconvs.append(
+                ConvModule(in_channels,
+                            self.conv_out_channels,
+                            1,
+                            conv_cfg=conv_cfg,
+                            norm_cfg=norm_cfg,
+                            act_cfg = dict(type='ReLU')))
                     
-        logits_in_channel = self.conv_out_channels
+        logits_in_channel = self.conv_out_channels * 2
         out_channels = 1 if self.class_agnostic else self.num_classes
         self.conv_logits = nn.Conv2d(logits_in_channel, out_channels, 1)
+        self.lateral = ConvModule(self.in_channels,
+                                self.conv_out_channels,
+                                1,
+                                conv_cfg=conv_cfg,
+                                norm_cfg=norm_cfg,
+                                act_cfg = dict(type='ReLU'))
         self.relu = nn.ReLU(inplace=True)
         self.debug_imgs = None
 
@@ -86,10 +101,13 @@ class AttentionHead(nn.Module):
         '''print("\nsize of Orig ROI: ", x.size())'''
         feat = x
         
-        for conv in self.convs:
-            x = conv(x)
-        
-        attention_pred = self.conv_logits(x)
+        for conv3x3, conv1x1 in zip(self.normalconvs, self.onebyoneconvs):
+            x = conv1x1(x)
+            x = conv3x3(x)
+        y = self.lateral(feat)
+        z = torch.cat([x, y], 1)
+
+        attention_pred = self.conv_logits(z)
         attention_feats = attention_pred * feat
         return attention_pred, attention_feats
 

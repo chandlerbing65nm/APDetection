@@ -76,7 +76,7 @@ model = dict(
             loss_bbox=dict(
                 type='SmoothL1Loss', beta=1.0, loss_weight=1.0),
             loss_bpts = dict(
-                type='BoxPointsLoss', loss_weight=8.0))))
+                type='BoxPointsLoss', loss_weight=12.0))))
 # model training and testing settings
 train_cfg = dict(
     rpn=dict(
@@ -219,6 +219,6 @@ data = dict(
 evaluation = None
 
 # optimizer
-optimizer = dict(type='Adam', lr=0.005/100, weight_decay=0.0001)
+optimizer = dict(type='Adam', lr=0.0025/100, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
 # optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
