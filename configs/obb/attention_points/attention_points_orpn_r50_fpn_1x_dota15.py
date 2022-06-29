@@ -220,6 +220,6 @@ data = dict(
 evaluation = None
 
 # optimizer
-optimizer = dict(type='Adam', lr=0.0025/100, weight_decay=0.0001)
+optimizer = dict(type='AdamW', lr=0.0025/100, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
 # optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
