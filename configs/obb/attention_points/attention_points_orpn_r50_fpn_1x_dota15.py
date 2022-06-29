@@ -52,6 +52,7 @@ model = dict(
             in_channels=256,
             conv_out_channels=256,
             num_classes=15,
+            head_count = 1,
             bbox_type='obb',
             class_agnostic=True,
             loss_attention=dict(

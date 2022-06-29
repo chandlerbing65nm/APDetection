@@ -28,6 +28,7 @@ class AttentionHead(nn.Module):
                  in_channels=256,
                  conv_out_channels=256,
                  num_classes=80,
+                 head_count = 1,
                  bbox_type='obb',
                  class_agnostic=False,
                  conv_cfg=None,
@@ -43,6 +44,7 @@ class AttentionHead(nn.Module):
         self.in_channels = in_channels
         self.conv_out_channels = conv_out_channels
         self.num_classes = num_classes
+        self.head_count = head_count
         self.class_agnostic = class_agnostic
 
         self.conv_cfg = conv_cfg
