@@ -3,7 +3,7 @@
 ### Requirements (tested)
 
 - Linux
-- Python 3.7
+- Python 3.8+
 - PyTorch 1.9.0
 - CUDA 11.1
 - GCC 5+
