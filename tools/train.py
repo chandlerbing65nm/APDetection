@@ -23,7 +23,7 @@ def parse_args():
     parser.add_argument(
         '--resume-from', help='the checkpoint file to resume from')
     parser.add_argument(
-        '--no-validate',
+        '--validate',
         action='store_true',
         help='whether not to evaluate the checkpoint during training')
     group_gpus = parser.add_mutually_exclusive_group()
@@ -144,7 +144,7 @@ def main():
         datasets,
         cfg,
         distributed=distributed,
-        validate=False,
+        validate=args.validate,
         timestamp=timestamp,
         meta=meta)
 
