@@ -51,7 +51,7 @@ model = dict(
             roi_feat_size=7,
             in_channels=256,
             conv_out_channels=256,
-            num_classes=15,
+            num_classes=16,
             head_count = 1,
             bbox_type='obb',
             class_agnostic=True,
@@ -64,7 +64,7 @@ model = dict(
             in_channels=256,
             fc_out_channels=1024,
             roi_feat_size=7,
-            num_classes=15,
+            num_classes=16,
             bbox_coder=dict(
                 type='OBB2OBBDeltaXYWHTCoder',
                 target_means=[0., 0., 0., 0., 0.],
@@ -220,6 +220,6 @@ data = dict(
 evaluation = None
 
 # optimizer
-optimizer = dict(type='AdamW', lr=0.0025/100, weight_decay=0.0001)
+optimizer = dict(type='AdamW', lr=0.005/100, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
 # optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
