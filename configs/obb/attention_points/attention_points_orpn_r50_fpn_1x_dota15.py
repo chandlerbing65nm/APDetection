@@ -1,6 +1,6 @@
 _base_ = [
-    '../_base_/datasets/isaid.py',
-    '../_base_/schedules/schedule_1x.py',
+    '../_base_/datasets/dota.py',
+    '../_base_/schedules/schedule_20e.py',
     '../../_base_/default_runtime.py'
 ]
 
@@ -77,7 +77,7 @@ model = dict(
             loss_bbox=dict(
                 type='SmoothL1Loss', beta=1.0, loss_weight=1.0),
             loss_bpts = dict(
-                type='BoxPointsLoss', loss_weight=12.0))))
+                type='BoxPointsLoss', loss_weight=10.0))))
 # model training and testing settings
 train_cfg = dict(
     rpn=dict(
@@ -220,6 +220,5 @@ data = dict(
 evaluation = None
 
 # optimizer
-optimizer = dict(type='AdamW', lr=0.005/100, weight_decay=0.0001)
-optimizer_config = dict(grad_clip=None)
-# optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
+optimizer = dict(type='SGD', lr=0.005, momentum=0.9, weight_decay=0.0001)
+optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))

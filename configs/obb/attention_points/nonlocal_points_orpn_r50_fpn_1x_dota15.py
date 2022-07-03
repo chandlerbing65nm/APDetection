@@ -4,7 +4,6 @@ _base_ = [
     '../../_base_/default_runtime.py'
 ]
 
-
 model = dict(
     type='OrientedRCNN',
     pretrained='torchvision://resnet50',
@@ -39,15 +38,27 @@ model = dict(
             type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0),
         loss_bbox=dict(type='SmoothL1Loss', beta=1.0 / 9.0, loss_weight=1.0)),
     roi_head=dict(
-        type='OBBStandardRoIHead',
+        type='OBBStandardRoIHeadv2',
         bbox_roi_extractor=dict(
             type='OBBSingleRoIExtractor',
             roi_layer=dict(type='RoIAlignRotated', out_size=7, sample_num=2),
             out_channels=256,
             extend_factor=(1.4, 1.2),
             featmap_strides=[4, 8, 16, 32]),
+        attention_head=dict(
+            type='AttentionHeadv2',
+            num_convs=2,
+            roi_feat_size=7,
+            in_channels=256,
+            conv_out_channels=256,
+            num_classes=16,
+            head_count = 8,
+            bbox_type='obb',
+            class_agnostic=True,
+            loss_attention=dict(
+                type='CrossEntropyLoss', use_mask=True, loss_weight=1.0)),
         bbox_head=dict(
-            type='OBBShared2FCBBoxHead',
+            type='OBBShared2FCBBoxHeadv2',
             start_bbox_type='obb',
             end_bbox_type='obb',
             in_channels=256,
@@ -63,8 +74,10 @@ model = dict(
                 type='CrossEntropyLoss',
                 use_sigmoid=False,
                 loss_weight=1.0),
-            loss_bbox=dict(type='SmoothL1Loss', beta=1.0,
-                           loss_weight=1.0))))
+            loss_bbox=dict(
+                type='SmoothL1Loss', beta=1.0, loss_weight=1.0),
+            loss_bpts = dict(
+                type='BoxPointsLoss', loss_weight=8.0))))
 # model training and testing settings
 train_cfg = dict(
     rpn=dict(
@@ -107,6 +120,7 @@ train_cfg = dict(
             pos_fraction=0.25,
             neg_pos_ub=-1,
             add_gt_as_proposals=True),
+        attention_size=7,
         pos_weight=-1,
         debug=False))
 test_cfg = dict(
