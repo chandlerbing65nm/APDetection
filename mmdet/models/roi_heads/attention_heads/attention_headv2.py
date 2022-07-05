@@ -144,8 +144,8 @@ class AttentionHeadv2(nn.Module):
         reprojected_value = self.reprojection(aggregated_values)
         attention = reprojected_value + x
 
-        attention_pred = self.conv_logits(attention)
-        attention_feats = attention_pred * feats
+        attention_pred = self.conv_logits(reprojected_value)
+        attention_feats = attention
 
         return attention_pred, attention_feats
 
