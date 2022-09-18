@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: mmdet
+Version: 2.2.0+193e117
+Summary: Open MMLab Detection Toolbox and Benchmark
+Home-page: https://github.com/open-mmlab/mmdetection
+Author: OpenMMLab
+Author-email: chenkaidev@gmail.com
+License: Apache License 2.0
+Keywords: computer vision,object detection
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: all
+Provides-Extra: tests
+Provides-Extra: build
+Provides-Extra: optional
+License-File: LICENSE
+
+# Under-Construction
+
+## Abstract
+
+Under-Construction
+
+## Install
+
+Please refer to [install.md](docs/install.md) for installation.
+
+
+## Get Started
+
+For dataset preparation and training/testing of our model, please refer to [get-started.md](docs/get-started.md).
+
+## Citation
+```bibtex
+@article{Doloriel2022,
+	title="Under-Construction",
+	author="Doloriel, C.T. and Cajote, R.D.",
+	year="2022"
+}
+```
+## Acknowledgements
+
+Below are some great resources we used. We would like to thank the owners of:
+
+[MMDetection](https://github.com/open-mmlab/mmdetection) \
+[OBBdetection](https://github.com/jbwang1997/OBBDetection) \
+[BBoxToolKit](https://github.com/jbwang1997/BboxToolkit) \
+[DOTA Dataset](https://captain-whu.github.io/DOTA/) 
+
+
+
