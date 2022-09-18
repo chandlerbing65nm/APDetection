@@ -3,12 +3,12 @@ import torch
 from mmdet.core import arb2result, arb2roi, build_assigner, build_sampler
 from mmdet.models.builder import HEADS, build_head, build_roi_extractor
 
-from .obb_test_mixinsv2 import OBBoxTestMixinv2, OBBMaskTestMixinv2
+from .obb_test_mixins import OBBoxTestMixin, OBBMaskTestMixin
 from .obb_base_roi_headv2 import OBBBaseRoIHeadv2
 
 
 @HEADS.register_module()
-class OBBStandardRoIHeadv4(OBBBaseRoIHeadv2, OBBoxTestMixinv2, OBBMaskTestMixinv2):
+class OBBStandardRoIHeadv4(OBBBaseRoIHeadv2, OBBoxTestMixin, OBBMaskTestMixin):
     """Simplest base roi head including one bbox head and one mask head.
     """
 
