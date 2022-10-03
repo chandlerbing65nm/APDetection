@@ -1,4 +1,4 @@
-# Under-Construction
+# Improving the Detection of Small Oriented Objects in Aerial Images
 
 ## Abstract
 
