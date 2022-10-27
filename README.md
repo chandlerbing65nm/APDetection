@@ -22,7 +22,7 @@ For dataset preparation and training/testing of our model, please refer to [get-
 ## Cite
 ```bibtex
 @article{DolorielImproving2022,
-title= {Improving the Detection of Small Oriented Objects in Aerial Image},
+title= {Improving the Detection of Small Oriented Objects in Aerial Images},
 keywords= {object detection, small oriented objects},
 journal= {},
 author= {Doloriel C. and Cajote R.},
