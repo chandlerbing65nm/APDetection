@@ -1,4 +1,4 @@
-# Improving the Detection of Small Oriented Objects in Aerial Images
+# <p align="center"> Improving the Detection of Small Oriented Objects in Aerial Images </p>
 
 <p align="center">
   <img 
