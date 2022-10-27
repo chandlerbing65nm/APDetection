@@ -19,12 +19,18 @@ Please refer to [install.md](docs/install.md) for installation.
 
 For dataset preparation and training/testing of our model, please refer to [get-started.md](docs/get-started.md).
 
-## Citation
+## Cite
 ```bibtex
-@article{DolorielImproving,
-	title="Improving the Detection of Small Oriented Objects in Aerial Images",
-	author="Doloriel, C.T. and Cajote, R.D.",
-	year="2022"
+@article{DolorielImproving2022,
+title= {Improving the Detection of Small Oriented Objects in Aerial Image},
+keywords= {object detection, small oriented objects},
+journal= {},
+author= {Doloriel C. and Cajote R.},
+year= {2022},
+url= {},
+license= {},
+superseded= {},
+terms= {}
 }
 ```
 ## Acknowledgements
