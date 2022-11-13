@@ -21,16 +21,11 @@ For dataset preparation and training/testing of our model, please refer to [get-
 
 ## Cite
 ```bibtex
-@article{DolorielImproving2022,
-title= {Improving the Detection of Small Oriented Objects in Aerial Images},
-keywords= {object detection, small oriented objects},
-journal= {},
-author= {Doloriel C. and Cajote R.},
-year= {2022},
-url= {},
-license= {},
-superseded= {},
-terms= {}
+@inproceedings{DolorielImproving2023,
+author = {Doloriel C. and Cajote R.},
+booktitle = {Proceedings - 2023 IEEE Winter Conference on Applications of Computer Vision Workshops, WACV 2023 Workshops},
+title = {Improving the Detection of Small Oriented Objects in Aerial Images},
+year = {2023}
 }
 ```
 ## Acknowledgements
