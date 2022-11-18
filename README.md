@@ -21,10 +21,11 @@ For dataset preparation and training/testing of our model, please refer to [get-
 
 ## Cite
 ```bibtex
-@inproceedings{DolorielImproving2023,
+@inproceedings{Doloriel_2023_WACVW,
 author = {Doloriel C. and Cajote R.},
-booktitle = {Proceedings - 2023 IEEE Winter Conference on Applications of Computer Vision Workshops, WACV 2023 Workshops},
+booktitle = {Proceedings of 2023 IEEE Winter Conference on Applications of Computer Vision Workshops (WACVW)},
 title = {Improving the Detection of Small Oriented Objects in Aerial Images},
+month = {January},
 year = {2023}
 }
 ```
