@@ -1,4 +1,4 @@
-# <p align="center"> Improving the Detection of Small Oriented Objects in Aerial Images </p>
+# <p align="center"> [Improving the Detection of Small Oriented Objects in Aerial Images](https://openaccess.thecvf.com/content/WACV2023W/MaCVi/papers/Doloriel_Improving_the_Detection_of_Small_Oriented_Objects_in_Aerial_Images_WACVW_2023_paper.pdf) </p>
 
 <p align="center">
   <img 
